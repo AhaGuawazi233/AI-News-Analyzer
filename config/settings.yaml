@@ -1,0 +1,82 @@
+small_model:
+  provider: openai
+  provider_env: SMALL_MODEL_PROVIDER
+  model: gpt-4o-mini
+  model_env: SMALL_MODEL_NAME
+  api_key_env: SMALL_MODEL_API_KEY
+  base_url_env: SMALL_MODEL_BASE_URL
+  temperature: 0.1
+  max_tokens: 300
+large_model:
+  provider: openai
+  provider_env: LARGE_MODEL_PROVIDER
+  model: gpt-4o
+  model_env: LARGE_MODEL_NAME
+  api_key_env: LARGE_MODEL_API_KEY
+  base_url_env: LARGE_MODEL_BASE_URL
+  temperature: 0.3
+  max_tokens: 1500
+importance_threshold: 0.6
+rate_limit:
+  small_model_rpm: 500
+  large_model_rpm: 500
+  large_model_tpm: 150000
+  wait_timeout: 10
+  retry_countdown: 30
+schedule:
+  collect_cron: "*/3 * * * *"
+proxy:
+  default: ""
+fetcher:
+  archive_ph_timeout: 8
+  source_timeout: 20
+  min_content_length: 200
+  cloudflare_markers:
+    - "cf-browser-verification"
+    - "cf-challenge"
+    - "just a moment"
+dedup:
+  use_simhash: true
+  hamming_threshold: 3
+  short_text_threshold: 200
+  title_jaccard_threshold: 0.8
+  ttl_hours: 48
+  second_pass_simhash: true
+semantic_dedup:
+  enabled: true
+  history_hours: 24
+  max_history_items: 50
+notifier:
+  enabled: false
+  alert_threshold: 0.75
+  brief_alert_threshold: 0.85
+  parallel: true
+  channels:
+    - type: feishu
+      webhook_url_env: FEISHU_WEBHOOK_URL
+    - type: telegram
+      bot_token_env: TELEGRAM_BOT_TOKEN
+      chat_id_env: TELEGRAM_CHAT_ID
+    - type: discord
+      webhook_url_env: DISCORD_WEBHOOK_URL
+    - type: wecom
+      webhook_url_env: WECOM_WEBHOOK_URL
+    - type: dingtalk
+      webhook_url_env: DINGTALK_WEBHOOK_URL
+      secret_env: DINGTALK_SECRET
+    - type: slack
+      webhook_url_env: SLACK_WEBHOOK_URL
+    - type: bark
+      device_key_env: BARK_DEVICE_KEY
+      server: https://api.day.app
+    - type: serverchan
+      sendkey_env: SERVERCHAN_SENDKEY
+database:
+  url_env: DATABASE_URL
+redis:
+  url_env: REDIS_URL
+report:
+  format: obsidian
+  output_dir: data/reports
+idempotency:
+  enabled: true

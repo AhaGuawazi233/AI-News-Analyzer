@@ -1,0 +1,38 @@
+a_shares:
+  - code: "600519"
+    name: "贵州茅台"
+    aliases: ["Kweichow Moutai", "Moutai"]
+    sector: "consumer"
+  - code: "000858"
+    name: "五粮液"
+    aliases: ["Wuliangye"]
+    sector: "consumer"
+  - code: "601318"
+    name: "中国平安"
+    aliases: ["Ping An", "Ping An Insurance"]
+    sector: "finance"
+
+us_stocks:
+  - code: "AAPL"
+    name: "Apple"
+    aliases: ["Apple Inc"]
+    sector: "tech"
+  - code: "NVDA"
+    name: "NVIDIA"
+    aliases: ["Nvidia Corporation"]
+    sector: "tech"
+  - code: "TSLA"
+    name: "Tesla"
+    aliases: ["Tesla Inc"]
+    sector: "auto"
+  - code: "MSFT"
+    name: "Microsoft"
+    aliases: ["Microsoft Corporation"]
+    sector: "tech"
+
+macro_themes:
+  - "Fed interest rate"
+  - "US-China trade"
+  - "inflation"
+  - "GDP"
+  - "employment"

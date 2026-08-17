@@ -1,0 +1,31 @@
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+
+# Local tools and editors
+.omo/
+.idea/
+.vscode/
+
+# Runtime data
+data/reports/
+*.db
+*.sqlite*
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db

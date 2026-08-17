@@ -1,0 +1,18 @@
+sources:
+  - name: reuters_world
+    type: rss
+    lang: en
+    priority: high
+    url: https://news.google.com/rss/search?q=site:reuters.com+when:1d&hl=en-US&gl=US&ceid=US:en
+    is_paywalled: false
+  - name: bbc_world
+    type: rss
+    lang: en
+    priority: high
+    url: http://feeds.bbci.co.uk/news/world/rss.xml
+    is_paywalled: false
+  - name: google_news_finance
+    type: google_news
+    lang: en
+    priority: medium
+    query: stock market finance A-shares US stocks
