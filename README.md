@@ -28,8 +28,8 @@
 ### 1. 克隆项目
 
 ```bash
-git clone <repo-url>
-cd news-analyzer
+git clone https://github.com/AhaGuawazi233/AI-News-Analyzer.git
+cd AI-News-Analyzer
 ```
 
 ### 2. 配置环境变量
@@ -110,11 +110,12 @@ open http://localhost:5555
 ## 项目结构
 
 ```
-news-analyzer/
+AI-News-Analyzer/
 ├── docker-compose.yml
 ├── Dockerfile
 ├── requirements.txt
 ├── .env.example
+├── LICENSE                  # MIT 许可证
 ├── config/
 │   ├── rss_sources.yaml      # 新闻源配置
 │   ├── watchlist.yaml        # 股票关注列表
@@ -148,7 +149,9 @@ news-analyzer/
 │   │   └── serverchan.py     # Server酱
 │   └── api.py                # FastAPI 接口
 └── tests/
-    └── test_dedup.py         # 去重模块测试
+    ├── test_dedup.py         # 去重模块测试
+    ├── test_model_config.py  # 模型运行时配置测试
+    └── test_p1_regressions.py # 安全与回归测试
 ```
 
 ## API 接口
@@ -248,13 +251,9 @@ notifier:
 | **出站请求防护** | 仅允许公网 HTTP(S) 地址，逐跳校验重定向，拒绝私网/回环/链路本地目标 |
 | **管理面防护** | API Bearer Token + Flower Basic Auth；Compose 端口仅绑定 `127.0.0.1` |
 
-## 成本估算
+## 成本说明
 
-| 默认模型示例 | 用途 | 频率 | 月成本 |
-|------|------|------|--------|
-| gpt-4o-mini | 分类筛选 | ~1440 次/天 | ~¥30/月 |
-| gpt-4o | 深度分析 | ~216 次/天 | ~¥370/月 |
-| **合计** | | | **~¥400/月** |
+LLM 成本取决于新闻源数量、去重与筛选命中率、输入/输出 token 数、模型选择及服务商实时定价。项目默认每 3 分钟触发一轮采集，但并非每轮都会产生固定数量的模型请求。上线前请根据实际日志中的调用量和所选服务商的当前价格单独估算，并配置预算上限与用量告警。
 
 ## 常用命令
 
@@ -307,4 +306,4 @@ pytest tests/ -v
 
 ## 许可证
 
-MIT
+本项目采用 [MIT License](LICENSE) 开源。

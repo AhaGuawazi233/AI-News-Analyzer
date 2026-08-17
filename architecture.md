@@ -177,7 +177,7 @@ collected → fetched → classified → analyzed
 
 ### 5.1 项目结构
 ```
-news-analyzer/
+AI-News-Analyzer/
 ├── docker-compose.yml / Dockerfile / requirements.txt / .env.example
 ├── config/
 │   ├── rss_sources.yaml      # RSS 源(含 proxy/is_paywalled)
